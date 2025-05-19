@@ -100,7 +100,7 @@
     submit.addEventListener("click", function () {
       const val = answer.value.toLocaleLowerCase().trim();
       if (questionCount === 1) {
-        if (val === "wiewiórka") {
+        if (val === "wiewiórka" || val==="wiewiorka") {
           alert("BRAWO!");
           questionCount = 2;
           question.innerText = "Idę sobie leśną drogą. Czasem gniewnie tupnę nogą. Kolce mam i wzdłuż, i wszerz. Kto ja jestem?";
@@ -109,7 +109,7 @@
           alert("Spróbuj jeszcze raz :(");
         }
       } else if (questionCount === 2) {
-        if (val === "jeż") {
+        if (val === "jeż" || val === "jez") {
           alert("BRAWO!");
           questionCount = 3;
           question.innerText = "„Nogi długie, poroże jak korona. W lesie królem się nazywa – chociaż czasem się chowa.”";
@@ -118,7 +118,7 @@
           alert("Spróbuj jeszcze raz :(");
         }
       } else {
-        if (val === "jeleń") {
+        if (val === "jeleń" || val === "jelen") {
           alert("Super! O to nagroda:");
           question.innerText = "„Idź do przodu i w lewo...”";
           title.innerText = "Gdzie iść dalej?";
