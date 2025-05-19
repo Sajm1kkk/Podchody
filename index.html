@@ -2,127 +2,130 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PODCHODY</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
-        rel="stylesheet">
-    <style>
-        html,
-        body {
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            position: fixed;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PODCHODY</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: "Roboto Mono", monospace;
-            font-weight: 400;
-            display: flex;
-            flex-direction: column;
-            /* Stack elements vertically */
-            justify-content: center;
-            /* Vertical centering */
-            align-items: center;
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+    }
 
-            background-image: url('Background.jpeg');
-            background-repeat: no-repeat;
-            background-size: auto 100vh;
-            background-position: left center;
-            overflow-x: auto;
-        }
+    body {
+      font-family: "Roboto Mono", monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: url('Background.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-color: #fff; /* fallback */
+    }
 
-        input {
-            width: 60%;
-            height: 5%;
-            border-radius: 10px;
-            padding-left: 10%;
-            border-style: solid;
-            border-color: black;
-        }
+    input {
+      width: 60%;
+      height: 5%;
+      border-radius: 10px;
+      padding-left: 10%;
+      border: 1px solid black;
+    }
 
-        div {
-            width: 90%;
-            height: 90%;
-            display: flex;
-            flex-direction: column;
-            /* Stack elements vertically */
+    div {
+      width: 90%;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      background-color: rgba(255, 255, 255, 0.8); /* make content readable */
+      padding: 2rem;
+      border-radius: 1rem;
+    }
 
-            align-items: center;
-        }
-        h2{
-         
-           text-align: center;
-        }
-        h1{
-            text-align: center;
-        }
-        button{
-            width: 60%;
-            height: 5%;
-            margin-top: 5%;
-            border-style: solid;
-            border-color: black;
-            border-radius: 10px;
-            background-color: orange;
-        }
-    </style>
+    h1,
+    h2 {
+      text-align: center;
+    }
+
+    button {
+      width: 60%;
+      height: 3rem;
+      border: 1px solid black;
+      border-radius: 10px;
+      background-color: orange;
+      color: black;
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      input,
+      button {
+        width: 80%;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <div>
-        <h1>Zagadka: </h1>
-        <h2>„W lesie mieszka, ogon ma puszysty,
-            Skacze po drzewach, zjada orzeszki.
-            Ruda jak marchewka – kto to taki?”</h2>
-        <input>
-        <button>Wyślij</button>
-    </div>
-            <script>
-            alert("Niga zabronione!")
-            let questionCount = 1;
-            const title = document.querySelector("h1")
-            const question = document.querySelector("h2");
-            const answer = document.querySelector("input");
-            const submit = document.querySelector("button");
+  <div>
+    <h1>Zagadka: </h1>
+    <h2>„W lesie mieszka, ogon ma puszysty, Skacze po drzewach, zjada orzeszki. Ruda jak marchewka – kto to taki?”</h2>
+    <input>
+    <button>Wyślij</button>
+  </div>
+  <script>
+    let questionCount = 1;
+    const title = document.querySelector("h1");
+    const question = document.querySelector("h2");
+    const answer = document.querySelector("input");
+    const submit = document.querySelector("button");
 
-            submit.addEventListener("click",function(){
-                if (questionCount === 1){
-                    if(answer.value.toLocaleLowerCase()==="wiewiórka"){
-                        alert("BRAWO!")
-                        questionCount = 2
-                        question.innerText = "Idę sobie leśną drogą. Czasem gniewnie tupnę nogą. Kolce mam i wzdłuż, i wszerz. Kto ja jestem?"
-                        answer.value="";
-                    } else {
-                        alert("Spróbuj jeszcze raz :(")
-                    }
-                } else if(questionCount === 2){
-                    if(answer.value.toLocaleLowerCase()==="jeż"){
-                        alert("BRAWO!")
-                        questionCount = 3
-                        question.innerText = " „Nogi długie, poroże jak korona. W lesie królem się nazywa –chociaż czasem się chowa."
-                        answer.value="";
-
-                    } else {
-                        alert("Spróbuj jeszcze raz :(")
-                    }
-                } else {
-                        if(answer.value.toLocaleLowerCase()==="jeleń"){
-                        alert("Super! O to nagroda:")
-                        question.innerText = " „Idz do przodu i w lewo..."
-                        title.innerText = "Gdzie iść dalej?"
-                        submit.style.display = "none"
-                        answer.style.display = "none"
-
-                    } else {
-                        alert("Spróbuj jeszcze raz :(")
-                    }
-                }
-            })
-        </script>
+    submit.addEventListener("click", function () {
+      const val = answer.value.toLocaleLowerCase().trim();
+      if (questionCount === 1) {
+        if (val === "wiewiórka") {
+          alert("BRAWO!");
+          questionCount = 2;
+          question.innerText = "Idę sobie leśną drogą. Czasem gniewnie tupnę nogą. Kolce mam i wzdłuż, i wszerz. Kto ja jestem?";
+          answer.value = "";
+        } else {
+          alert("Spróbuj jeszcze raz :(");
+        }
+      } else if (questionCount === 2) {
+        if (val === "jeż") {
+          alert("BRAWO!");
+          questionCount = 3;
+          question.innerText = "„Nogi długie, poroże jak korona. W lesie królem się nazywa – chociaż czasem się chowa.”";
+          answer.value = "";
+        } else {
+          alert("Spróbuj jeszcze raz :(");
+        }
+      } else {
+        if (val === "jeleń") {
+          alert("Super! O to nagroda:");
+          question.innerText = "„Idź do przodu i w lewo...”";
+          title.innerText = "Gdzie iść dalej?";
+          submit.style.display = "none";
+          answer.style.display = "none";
+        } else {
+          alert("Spróbuj jeszcze raz :(");
+        }
+      }
+    });
+  </script>
 </body>
 
 </html>
