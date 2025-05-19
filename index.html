@@ -54,7 +54,20 @@
             align-items: center;
         }
         h2{
+         
+           text-align: center;
+        }
+        h1{
             text-align: center;
+        }
+        button{
+            width: 60%;
+            height: 5%;
+            margin-top: 5%;
+            border-style: solid;
+            border-color: black;
+            border-radius: 10px;
+            background-color: orange;
         }
     </style>
 </head>
@@ -66,7 +79,50 @@
             Skacze po drzewach, zjada orzeszki.
             Ruda jak marchewka – kto to taki?”</h2>
         <input>
+        <button>Wyślij</button>
     </div>
+            <script>
+            alert("Niga zabronione!")
+            let questionCount = 1;
+            const title = document.querySelector("h1")
+            const question = document.querySelector("h2");
+            const answer = document.querySelector("input");
+            const submit = document.querySelector("button");
+
+            submit.addEventListener("click",function(){
+                if (questionCount === 1){
+                    if(answer.value.toLocaleLowerCase()==="wiewiórka"){
+                        alert("BRAWO!")
+                        questionCount = 2
+                        question.innerText = "Idę sobie leśną drogą. Czasem gniewnie tupnę nogą. Kolce mam i wzdłuż, i wszerz. Kto ja jestem?"
+                        answer.value="";
+                    } else {
+                        alert("Spróbuj jeszcze raz :(")
+                    }
+                } else if(questionCount === 2){
+                    if(answer.value.toLocaleLowerCase()==="jeż"){
+                        alert("BRAWO!")
+                        questionCount = 3
+                        question.innerText = " „Nogi długie, poroże jak korona. W lesie królem się nazywa –chociaż czasem się chowa."
+                        answer.value="";
+
+                    } else {
+                        alert("Spróbuj jeszcze raz :(")
+                    }
+                } else {
+                        if(answer.value.toLocaleLowerCase()==="jeleń"){
+                        alert("Super! O to nagroda:")
+                        question.innerText = " „Idz do przodu i w lewo..."
+                        title.innerText = "Gdzie iść dalej?"
+                        submit.style.display = "none"
+                        answer.style.display = "none"
+
+                    } else {
+                        alert("Spróbuj jeszcze raz :(")
+                    }
+                }
+            })
+        </script>
 </body>
 
 </html>
